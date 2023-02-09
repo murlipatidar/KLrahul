@@ -1,0 +1,60 @@
+
+
+
+<div class="container">
+	<p>Index(Home) Pages</p>
+	<h3>Show All Public Post</h3>
+
+	<% if user_signed_in? %> 
+	 <span class="bg-primary text-white"> Welcome <%= current_user.email %> </span><br><br>
+	  <%#= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+	<% else %>
+	  <%= button_to "Sign in", new_user_session_path %> 
+	<% end %>
+	<br>
+	<button><%= link_to "New Post", new_post_path %></button>
+	<br><br>
+	
+
+
+
+<!-- link_to "Comment wall", profile_path(@profile, :anchor => "wall") -->
+<!-- #=> <a href="/posts/private/:id">Comment wall</a> -->
+
+<!-- link_to "Ruby on Rails search", :controller => "searches", :query => "ruby on rails" -->
+<!-- #=> <a href="/posts?query=unpublished">Ruby on Rails search</a> -->
+
+<!-- link_to "Nonsense search", searches_path(:foo => "bar", :baz => "quux") -->
+<!-- #=> <a href="/searches?foo=bar&amp;baz=quux">Nonsense search</a> -->
+
+  <%#= link_to 'Link', private_path_path, data: { query_params: "unpublished" } %>
+
+
+<table class="table table-hover">
+<thead  class="thead-light">
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @posts.each do |post| %>
+    <tr>
+    	<td><%= link_to post.id, post %></td>
+      <td><%= link_to post.image, post %><td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+
+
+
+
+
+</div>
+
+

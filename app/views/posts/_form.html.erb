@@ -1,0 +1,41 @@
+<%= form_with model: @post do |form| %>
+	
+	<div>
+    	<%= form.label :image %>&nbsp&nbsp
+    	<%= form.text_field :image %>
+    	<% @post.errors.full_messages_for(:image).each do |message| %>
+    	  <div><%= message %></div>
+    	<% end %>
+  	</div>
+	<br>
+	<div>
+	<%= form.label :email %>&nbsp&nbsp
+	<%= form.text_field :email %>
+	<% @post.errors.full_messages_for(:email).each do |message| %>
+	  <div><%= message %></div>
+	<% end %>
+  </div>
+<br>
+	<div>
+	  <%= form.label :status %>  &nbsp
+	  <%= form.select :status, ['published', 'draft','unpublished']%>
+	  <%#= form.select :status, [0 as 'published',1 as 'unpublished',2 as 'draft']%>
+	</div>
+	<br>
+	<div>
+		<%= form.submit %>
+	</div>
+
+<%end%>
+	
+ 	<%#= form.label :status %>
+    <%#= form.number_field :status, id: :production_status %>
+
+
+	<!-- <div>
+		<%#= form.label :status %> : 
+		<%#= form.select :status, Author.statuses.keys  %>
+		<%# @author.errors.full_messages_for(:status).each do |message| %>
+      <div><%#= message %></div>
+    <%#end %>
+	</div> -->

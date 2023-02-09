@@ -1,0 +1,8 @@
+<h2>Show Comments This post...</h2>
+<% @post.comments.each do |comment| %>
+  <p>
+    <strong>Comments:</strong>
+    <%= comment.comment %>
+  </p>
+<% end %>
+

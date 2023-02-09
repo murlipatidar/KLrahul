@@ -1,0 +1,22 @@
+<h2>Show All Private_Post</h2>
+
+<table class="table table-hover">
+    <thead  class="thead-light">
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @privates.each do |pp| %>
+        <tr>
+          <td><%= pp.id %></td>
+          <td><%= pp.image %></td>
+          <td><%= pp.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+ </table> 

@@ -1,0 +1,50 @@
+<div class="container">
+<h2>Show Pages</h2  >
+<h3>Post :-</h3>
+<%= @post.id%>&nbsp&nbsp&nbsp
+<%= @post.image %>&nbsp&nbsp&nbsp
+<%= @post.status %>
+<br><br>
+
+
+<%#= link_to  "unpublished", post_path(:post => { :status => status })%>
+
+<%#= link_to "unpublished", post_path(:status=>?? ) %>
+
+<%#= link_to "draft", post_path(:post => { :status => status })%>
+
+
+
+<!-- link_to "Ruby", :controller => "post", :query => "status" -->
+<!-- #=> <a href="/post?query=status">search</a> -->
+
+<!-- link_to "Nonsense search", searches_path(:foo => "bar", :baz => "quux") -->
+<!-- #=> <a href="/searches?foo=bar&amp;baz=quux">Nonsense search</a> -->
+
+
+  <%#= link_to 'Link', post_path, data: { params: "status" } %>
+
+  <%= link_to "Comment wall", post_path(@post, :status => "status")%>
+
+
+
+<button><%= link_to "Back to Pavilion", posts_path %></button>
+&nbsp&nbsp
+<button><%= link_to "Edit Post", edit_post_path(@post) %></button>
+&nbsp&nbsp
+<button><%= link_to "Destroy Post", post_path(@post), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+</button>
+
+
+
+
+<br><br>
+<h3>Comments</h3>
+<%= render @post.comments %>
+
+<h3>Add a comment:</h3>
+<%= render 'comments/form' %>
+</div>
